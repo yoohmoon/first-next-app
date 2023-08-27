@@ -3,7 +3,9 @@
 // 서버 컴포넌트라서 useEffect 필요 없다. - 사용자와 상호작용하지 않음 (클라이언트는 사용자와 상호작용하는 컴포넌트)
 export default async function Read({ params }) {
   //   console.log(params);
-  const response = await fetch('http://localhost:9998/topics/' + params.id);
+  const response = await fetch('http://localhost:9999/topics/' + params.id, {
+    cache: 'no-store',
+  });
   const topic = await response.json();
   //   console.log(data);
   //   서버 컴포넌트-서버 쪽에서 실행됨
